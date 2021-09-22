@@ -8,6 +8,7 @@
 
 #logo {
     height: 35px;
+    margin: 10px;
 }
 
 .social {
@@ -18,4 +19,9 @@
 
 .img-social {
     height: 48px;
+}
+
+.bg-light {
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
