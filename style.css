@@ -1,0 +1,21 @@
+.footer {
+    text-align: center;
+}
+
+* {
+    background-color: rgb(85, 193, 255);
+}
+
+#logo {
+    height: 35px;
+}
+
+.social {
+    /*border:1px solid #000;*/
+    top: 50%;
+    /*para poner height 192 deberíamos haber indicado en el reset de estilos font-size:0;*/
+}
+
+.img-social {
+    height: 48px;
+}
