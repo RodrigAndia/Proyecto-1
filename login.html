@@ -7,7 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleLogin.css">
+
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $('#ingresar').click(function() {
+                ///var email = $("#email").val();
+                //var pass = $("#pass").val();
+
+                if ($("#email").val().trim().length > 0) {
+                    alert("El campo contiene un string válido que no son espacios");
+                } else {
+                    alert("El campo contiene espacios y está vacío");
+                }
+
+                if ($("#email").val().indexOf('@', 0) == -1 || $("#email").val().indexOf('.', 0) == -1) {
+                    alert('El correo electrónico introducido no es correcto.');
+                }
+                if ($("#pass").val() == "") {
+                    alert("Campo vacio");
+                }
+                if ($("#pass").val().length < 15) {
+                    alert("Password menor al rango");
+                }
+
+            });
+        });
+    </script>
+
 
 </head>
 
@@ -46,7 +78,7 @@
                         </ul>
                         <form class="d-flex">
                             <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Buscar</button>
+                            <button id="boton" class="btn btn-outline-success" type="submit">Buscar</button>
                             <a class="btn btn-primary" href="login.html"> Ingresar</a>
                         </form>
                     </div>
@@ -54,66 +86,47 @@
             </nav>
         </header>
         <hr>
-        <div class="container">
-            <div id="div-principal" class="row">
-                <div id="divsecciones" class="col-sm-12 col-lg-10">
-                    <h1>Descubre los mejores juegos de Nintendo Switch</h1>
-                    <h2>Juegos, diversion y mucho más</h2>
-                    <article>
-                        <section id=carrusel>
-                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="img/fury.png" class="d-block w-100" alt="furro">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/toad.png" class="d-block w-100" alt="caja">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/new.png" class="d-block w-100" alt="u">
-                                    </div>
+
+        <!-- AQUI VA EL LOGIN -->
+
+        <div id="login">
+            <h3 class="text-center text-white">Ingresar</h3>
+            <div class="container">
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <div id="login-column" class="col-md-6">
+                        <div id="login-box" class="col-md-12 margin-bottom">
+                            <form id="login-form" class="form" action="" method="post">
+                                <h3 class="text-center text-info"></h3>
+                                <div class="form-group">
+                                    <label for="email" class="text-info">Email:</label><br>
+                                    <input id="email" type="text" name="email" id="email" class="form-control">
                                 </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                            </div>
-                        </section>
-                    </article>
 
-                    <hr>
-                    <article>
-                        <section id="juegos" class="row">
-                            <div id="juego01" class="col-sm-6">
-                                <img src="img/mario.png" alt="" width="50%">
-                                <p>El mejor juego de carreras hasta la fecha</p>
-                                <a href="construccion.html" target="">Mas informacion</a>
-                            </div>
+                                <div class="form-group">
+                                    <label for="password" class="text-info">Contraseña:</label><br>
+                                    <input id="pass" type="password" name="password" class="form-control">
+                                </div>
 
-                            <div id="juego02" class="col-sm-6">
-                                <img src="img/super.png" alt="" width="50%">
-                                <p>Disfruta este fantastico juego de aventuras junto a Mario y sus amigos</p>
-                                <a href="#" target="">Mas informacion</a>
-                            </div>
-                            <br>
-                            <hr>
-                        </section>
-                    </article>
+                                <br>
+
+                                <button id="ingresar" type="submit" name="ingresar" class="btn btn-info btn-lg btn-block" value="Ingresar">Ingresar</button>
+
+                                <div id="register-link" class="text-right form-group">
+                                    <a href="registro.html" class="text-info">Registrar</a>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
                 </div>
-
-                <aside class="col-sm-2 col-lg-2">
-                    <p id="p-aside">Aside</p>
-                </aside>
-
             </div>
         </div>
+
+        <!-- FIN DEL LOGIN -->
+
     </div>
 
-    <footer id="footer" class="footer">
+    <footer id="footer" class="footer margin-top">
         <p>TalentLab. Todos los derechos reservados.</p>
         <div class="social">
             <a href="https://www.facebook.com/"><img class="img-social" src="img/facebook.png" alt="facebook"></a>
@@ -128,4 +141,4 @@
 
 </body>
 
-</html>
+</html>{}
